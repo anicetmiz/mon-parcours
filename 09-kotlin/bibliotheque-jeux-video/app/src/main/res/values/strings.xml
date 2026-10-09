@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Tp_2</string>
+    <string name="retour">Retour</string>
+    <string name="param_tres">Paramètres</string>
+    <string name="detail">Detail</string>
+    <string name="changer_statut_du_jeu">Changer statut du jeu</string>
+    <string name="pas_commencer">PAS COMMENCER</string>
+    <string name="en_cours">EN COURS</string>
+    <string name="termine">TERMINE</string>
+    <string name="modifier_la_note_du_jeu">Modifier la note du jeu</string>
+    <string name="aucune_note_pour_ce_jeu">Aucune note pour ce jeu</string>
+    <string name="mettez_en_une">Mettez en une🫡</string>
+    <string name="modifier_le_temp_estimer_du_jeu">Modifier le temp estimer du jeu</string>
+    <string name="aucun_temp_estimer_pour_ce_jeu">Aucun temp estimer pour ce jeu</string>
+    <string name="combien_avez_vous_fait">Combien avez vous fait?😏</string>
+    <string name="temp_estimer">temp estimer</string>
+    <string name="mes_jeux">Mes Jeux</string>
+    <string name="tri_actif_par_titre">TRI ACTIF PAR TITRE</string>
+    <string name="tri_actif_par_statut">TRI ACTIF PAR STATUT</string>
+    <string name="tri_actif_par_note_descendante">TRI ACTIF PAR NOTE (DESCENDANTE)</string>
+    <string name="titre">TITRE</string>
+    <string name="specificiter">SPECIFICITER</string>
+    <string name="parametre">Parametre</string>
+    <string name="par_titre_a_z">Par titre (A-Z)</string>
+    <string name="par_statut">Par statut</string>
+    <string name="par_note_desc">Par note (desc)</string>
+    <string name="plateforme">"Plateforme : "</string>
+    <string name="statut">Statut :</string>
+    <string name="pas_commencer1">Pas commencer</string>
+    <string name="en_cours1">En cours</string>
+    <string name="termin1">Terminé</string>
+    <string name="note">Note :</string>
+    <string name="n_a">N/A</string>
+</resources>

@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "TP3": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "launchUrl": "",
+      "applicationUrl": "https://localhost:13806;http://localhost:13807"
+    }
+  }
+}

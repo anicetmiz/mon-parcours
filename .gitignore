@@ -1,0 +1,42 @@
+# ============================================
+#  .gitignore — mon-parcours (C#, Java, Kotlin, web)
+# ============================================
+
+# --- .NET / Visual Studio ---
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.pdb
+
+# --- Java / NetBeans ---
+build/
+dist/
+nbproject/private/
+*.class
+
+# --- Kotlin / Android Studio / Gradle ---
+.gradle/
+.idea/
+.kotlin/
+local.properties
+*.iml
+captures/
+
+# --- JavaScript ---
+node_modules/
+
+# --- Système et éditeurs ---
+.vscode/
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
+*.tmp
+
+# --- Notes personnelles et secrets ---
+*.txt
+!**/CMakeLists.txt
+.env
+appsettings.Development.json

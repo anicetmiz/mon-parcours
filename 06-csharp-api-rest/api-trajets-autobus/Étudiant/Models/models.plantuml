@@ -1,0 +1,19 @@
+@startuml "Models"
+left to right direction
+class Trajet {
+  +Id: int
+  +Nom: string
+  +PointsArret: List<Arret>
+  +DateCreationTrajet: DateTime
+  +DateDerniereModification: DateTime
+}
+
+class Arret {
+  +Id: int
+  +Latitude: double
+  +Longitude: double
+}
+
+Trajet "1" *-- "many" Arret : PointsArret
+
+@enduml

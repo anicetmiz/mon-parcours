@@ -1,0 +1,1002 @@
+type: collection.insomnia.rest/5.0
+name: TP4-EFCore
+meta:
+  id: wrk_ed948055df30429c87519d2f230ba90a
+  created: 1762358668226
+  modified: 1762914944424
+  description: ""
+collection:
+  - name: TP3-WebApi
+    meta:
+      id: fld_bd53df9c64394b5893e453c8460de726
+      created: 1758295792058
+      modified: 1762913972253
+      sortKey: -1758295789877
+      description: ""
+    children:
+      - name: Trajets
+        meta:
+          id: fld_da1313082068434696814fc9db8c1307
+          created: 1758295792062
+          modified: 1762913972083
+          sortKey: -1758295790076
+          description: ""
+        children:
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: Tous les trajets
+            meta:
+              id: req_fbc80db218b64815824fef8d916bcac1
+              created: 1758295792065
+              modified: 1758826704252
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789875
+            method: GET
+            scripts:
+              afterResponse: >-
+                insomnia.test("Response status code is 200", function () {
+                    insomnia.expect(insomnia.response.code).to.equal(200);
+                });
+
+                insomnia.test("Response has the correct Content-Type header",
+                function () {
+                    insomnia.expect(insomnia.response.headers.get("content-type")).to.include("application/json");
+                });
+
+                insomnia.test("Response body is an empty array", function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('array').that.is.empty;
+                });
+
+                insomnia.test("Verify the response array is of the expected
+                length", function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('array');
+                    insomnia.expect(responseData).to.have.lengthOf(0);
+                });
+
+                insomnia.test("Response array is of the expected type", function
+                () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('array');
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/1"
+            name: Trajet id 1 sans les arrêts - 404
+            meta:
+              id: req_0931512e0e8f4c79a9e25b3261b0cb16
+              created: 1758295792069
+              modified: 1762913508249
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789874
+            method: GET
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 404\", function () {\r
+
+                \    insomnia.response.to.have.status(404);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/1"
+            name: Trajet id 1 avec les arrêts - 404
+            meta:
+              id: req_5ad3f0fd9fed43e096b2d77587ffd3d3
+              created: 1758295792071
+              modified: 1758295792071
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789873
+            method: GET
+            parameters:
+              - name: includearrets
+                value: "true"
+                disabled: false
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 404\", function () {\r
+
+                \    insomnia.response.to.have.status(404);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/2"
+            name: Trajet id 2 - 404
+            meta:
+              id: req_597679743ddb4cf8a82a35a31e465e52
+              created: 1758295792073
+              modified: 1758295792073
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789872
+            method: GET
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 404\", function () {\r
+
+                \    insomnia.response.to.have.status(404);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: trajet sans body
+            meta:
+              id: req_64f1dd2a8c814742b909236e83b3647a
+              created: 1758295792075
+              modified: 1758827744775
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789871
+            method: POST
+            scripts:
+              afterResponse: |-
+                insomnia.test("Status code is 400 or 415", function () {
+                	insomnia.expect([400, 415]).to.include(insomnia.response.code);
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: trajet body vide
+            meta:
+              id: req_3703fb9bfea04df3a9233bed6500194f
+              created: 1758295792076
+              modified: 1762908564091
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789870
+            method: POST
+            body:
+              mimeType: application/json
+              text: "{}"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 400\", function () {\r
+
+                \    insomnia.response.to.have.status(400);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: trajet body erroné
+            meta:
+              id: req_286997756e5c4150a91339353ceedfa7
+              created: 1758295792077
+              modified: 1758295792077
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789869
+            method: POST
+            body:
+              mimeType: application/json
+              text: "{\r
+
+                \    \"trajet\":\"Nom du trajet avec mauvais nom de
+                propriété\"\r
+
+                }"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 400\", function () {\r
+
+                \    insomnia.response.to.have.status(400);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: trajet nom vide
+            meta:
+              id: req_d28fc3a84cec41d2be787ba37033d56a
+              created: 1758295792079
+              modified: 1758295792079
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789868
+            method: POST
+            body:
+              mimeType: application/json
+              text: "{\r\n    \"nom\":\"    \"\r\n}"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 400\", function () {\r
+
+                \    insomnia.response.to.have.status(400);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: Le trajet de "Death Valley"
+            meta:
+              id: req_1f3c8f9cdc654c8299cdd2693de82f8e
+              created: 1758295792080
+              modified: 1762913607718
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789867
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nom": "Death Valley"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: >-
+                insomnia.test('Response status code is 201', function () {
+                    insomnia.response.to.have.status(201);
+                })
+
+                insomnia.test('Response has the required fields', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('object');
+                    insomnia.expect(responseData).to.have.property('id');
+                    insomnia.expect(responseData).to.have.property('nom');
+                    insomnia.expect(responseData).to.have.property('pointsArret');
+                    insomnia.expect(responseData).to.have.property('dateCreationTrajet');
+                    insomnia.expect(responseData).to.have.property('dateDerniereModification');
+                })
+
+                insomnia.test('ID is a non-negative integer', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.id).to.be.a('number');
+                    insomnia.expect(responseData.id).to.be.at.least(0, 'ID should be a non-negative integer');
+                })
+
+                insomnia.test('PointsArret is an array is empty', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('object');
+                    insomnia.expect(responseData.pointsArret).to.be.an('array').and.to.be.empty;
+                })
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_1f3c8f9cdc654c8299cdd2693de82f8e', 'b64::JC5pZA==::46b',
+              'never', 60 %}/arrets"
+            name: Des arrêts pour "Death Valley" (sans doublons)
+            meta:
+              id: req_e8542460d80f4b96a3f08cdcf56af123
+              created: 1758295792081
+              modified: 1762908915541
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789866
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                [
+                    {
+                        "longitude": "46.40008",
+                        "latitude": "-72.8907",
+                				"estActif": false
+                    },
+                    {
+                        "longitude": "47.40008",
+                        "latitude": "-71.73243"
+                    },
+                     {
+                        "longitude": "48.40008",
+                        "latitude": "-73.25987"
+                    }
+                ]
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: >-
+                insomnia.test('Response status code is 200', function () {
+                    insomnia.expect(insomnia.response.code).to.equal(200);
+                })
+
+                insomnia.test('Content type is application/json', function () {
+                    insomnia.expect(insomnia.response.headers.get("content-type")).to.include("application/json");
+                });
+
+                insomnia.test('Id is a non-negative integer', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.id).to.be.a('number').and.to.be.at.least(0);
+                })
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_1f3c8f9cdc654c8299cdd2693de82f8e', 'b64::JC5pZA==::46b',
+              'never', 60 %}/arrets"
+            name: Des arrêts pour "Death Valley" (avec doublons)
+            meta:
+              id: req_d641f8059cbd472b8ddfd848b9adb1dc
+              created: 1758295792082
+              modified: 1762908993122
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789865
+            method: POST
+            body:
+              mimeType: application/json
+              text: "[\r
+
+                \    {\r
+
+                \        \"longitude\": \"45.40008\",\r
+
+                \        \"latitude\": \"-72.73243\"\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": \"45.40008\",\r
+
+                \        \"latitude\": \"-72.73243\"\r
+
+                \    },\r
+
+                \     {\r
+
+                \        \"longitude\": \"43.40008\",\r
+
+                \        \"latitude\": \"-72.25987\"\r
+
+                \    },\r
+
+                \     {\r
+
+                \        \"longitude\": \"48.40008\",\r
+
+                \        \"latitude\": \"-71.79453\"\r
+
+                \    }, {\r
+
+                \        \"longitude\": \"42.40008\",\r
+
+                \        \"latitude\": \"-71.53949\"\r
+
+                \    }\r
+
+                ]"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: >-
+                insomnia.test('Response status code is 200', function () {
+                    insomnia.response.to.have.status(200);
+                })
+
+                insomnia.test('Content-Type header is application/json',
+                function () {
+                    insomnia.expect(insomnia.response.headers.get("content-type")).to.include("application/json");
+                });
+
+                insomnia.test('Id is a non-negative integer', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.id).to.be.a('number');
+                    insomnia.expect(responseData.id).to.be.at.least(0, 'Id should be a non-negative integer');
+                })
+
+                insomnia.test('PointsArret array is present and contains
+                expected number of elements', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('object');
+                    insomnia.expect(responseData.pointsArret).to.exist.and.to.be.an('array');
+                    insomnia.expect(responseData.pointsArret).to.have.lengthOf.at.least(1);
+                })
+
+                insomnia.test('Nom should be a non-empty string', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.nom).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Nom should not be empty');
+                })
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: Un autre trajet sans points
+            meta:
+              id: req_c9f3faeb27a647d1bcb1f9a118ed4701
+              created: 1758295792084
+              modified: 1758295792084
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789864
+            method: POST
+            body:
+              mimeType: application/json
+              text: "{\r
+
+                \  \"nom\": \"La ligne rose\"\r
+
+                }"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: >-
+                insomnia.test('Response status code is 201', function () {
+                    insomnia.expect(insomnia.response.code).to.equal(201);
+                })
+
+                insomnia.test('Response has the required fields', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('object');
+                    insomnia.expect(responseData).to.have.property('id');
+                    insomnia.expect(responseData).to.have.property('nom');
+                    insomnia.expect(responseData).to.have.property('pointsArret');
+                    insomnia.expect(responseData).to.have.property('dateCreationTrajet');
+                    insomnia.expect(responseData).to.have.property('dateDerniereModification');
+                })
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_c9f3faeb27a647d1bcb1f9a118ed4701', 'b64::JC5pZA==::46b',
+              'never', 60 %}/arrets"
+            name: Des arrêts pour "La ligne rose" sans doublon
+            meta:
+              id: req_76311fce97d048d2b73207700c093e57
+              created: 1758295792085
+              modified: 1762909018193
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789863
+            method: POST
+            body:
+              mimeType: application/json
+              text: "[\r
+
+                \    {\r
+
+                \        \"longitude\": \"14.40008\",\r
+
+                \        \"latitude\": \"-14.73243\"\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": \"15.40008\",\r
+
+                \        \"latitude\": \"-15.73243\"\r
+
+                \    },\r
+
+                \     {\r
+
+                \        \"longitude\": \"16.40008\",\r
+
+                \        \"latitude\": \"-16.25987\"\r
+
+                \    },\r
+
+                \     {\r
+
+                \        \"longitude\": \"17.40008\",\r
+
+                \        \"latitude\": \"-17.79453\"\r
+
+                \    }, {\r
+
+                \        \"longitude\": \"18.40008\",\r
+
+                \        \"latitude\": \"-18.53949\"\r
+
+                \    }\r
+
+                ]"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: >-
+                insomnia.test('Response status code is 200', function () {
+                    insomnia.expect(insomnia.response.code).to.equal(200);
+                })
+
+                insomnia.test('Id is a non-negative integer', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.id).to.be.a('number');
+                    insomnia.expect(responseData.id).to.be.at.least(0, 'Id should be a non-negative integer');
+                })
+
+                insomnia.test('PointsArret array is present and contains
+                expected number of elements', function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('object');
+                    insomnia.expect(responseData.pointsArret).to.be.an('array');
+                    insomnia.expect(responseData.pointsArret.length).to.have.at.least(1);
+                })
+
+                insomnia.test('PointsArret objects have valid coordinates',
+                function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData.pointsArret).to.be.an('array');
+                    responseData.pointsArret.forEach(function (point) {
+                        insomnia.expect(point.longitude).to.be.a('number').within(-180, 180);
+                        insomnia.expect(point.latitude).to.be.a('number').within(-90, 90);
+                    });
+                })
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: Tous les trajets - Plusieurs
+            meta:
+              id: req_4709d103caa34b14be3500917023cad6
+              created: 1758295792086
+              modified: 1762912459172
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789862
+            method: GET
+            scripts:
+              afterResponse: >-
+                insomnia.test("Response status code is 200", function () {
+                    insomnia.expect(insomnia.response.code).to.equal(200);
+                });
+
+                insomnia.test("Response has the correct Content-Type header",
+                function () {
+                    insomnia.expect(insomnia.response.headers.get("content-type")).to.include("application/json");
+                });
+
+                insomnia.test("Response body is not an empty array", function ()
+                {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('array').that.is.not.empty;
+                });
+
+                insomnia.test("Verify the response array is of the expected
+                length", function () {
+                    const responseData = insomnia.response.json();
+                    insomnia.expect(responseData).to.be.an('array');
+                    insomnia.expect(responseData.length).to.be.at.least(1);
+                });
+
+                insomnia.test("Response array is of the expected type", function
+                () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('array');
+                });
+
+
+                insomnia.test("Response array is of the expected type", function
+                () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('array');
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_1f3c8f9cdc654c8299cdd2693de82f8e', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: Trajet id 1 sans les arrêts
+            meta:
+              id: req_60fe8195dd934cdc977be64caec58af9
+              created: 1758295792087
+              modified: 1762912384429
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789861
+            method: GET
+            scripts:
+              afterResponse: >
+                insomnia.test("Status code is 200", function () {
+                  insomnia.response.to.have.status(200);
+                });
+
+                insomnia.test("Response has the required fields", function () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('object');
+                  insomnia.expect(responseData).to.have.property('id');
+                  insomnia.expect(responseData).to.have.property('nom');
+                  insomnia.expect(responseData).to.have.property('pointsArret');
+                  insomnia.expect(responseData).to.have.property('dateCreationTrajet');
+                  insomnia.expect(responseData).to.have.property('dateDerniereModification');
+                	insomnia.expect(responseData).to.have.property('chauffeurs');
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_1f3c8f9cdc654c8299cdd2693de82f8e', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: Trajet id 1 avec les arrêts
+            meta:
+              id: req_335fc813e84040b3b184bba40e97ad89
+              created: 1758295792088
+              modified: 1762912413875
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789860
+            method: GET
+            parameters:
+              - name: includearrets
+                value: "true"
+                disabled: false
+            scripts:
+              afterResponse: |-
+                insomnia.test("Status code is 200", function () {
+                  insomnia.response.to.have.status(200);
+                });
+                insomnia.test("Response has the required fields", function () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('object');
+                  insomnia.expect(responseData).to.have.property('id');
+                  insomnia.expect(responseData).to.have.property('nom');
+                  insomnia.expect(responseData).to.have.property('pointsArret');
+                  insomnia.expect(responseData).to.have.property('dateCreationTrajet');
+                  insomnia.expect(responseData).to.have.property('dateDerniereModification');
+                	insomnia.expect(responseData).to.have.property('chauffeurs');
+                });
+                insomnia.test("pointsArret is an array", function () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData.pointsArret).to.be.an('array');
+                });
+
+                insomnia.test("pointsArret has a length of at least 1", function () {
+                  const responseData = insomnia.response.json();
+                insomnia.expect(responseData.pointsArret.length).to.be.at.least(1);
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/{% response 'body',
+              'req_c9f3faeb27a647d1bcb1f9a118ed4701', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: Trajet id 2
+            meta:
+              id: req_ccaa8ab904a948388d93dec8f776a771
+              created: 1758295792089
+              modified: 1762912423995
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789859
+            method: GET
+            scripts:
+              afterResponse: >
+                insomnia.test("Status code is 200", function () {
+                  insomnia.response.to.have.status(200);
+                });
+
+                insomnia.test("Response has the required fields", function () {
+                  const responseData = insomnia.response.json();
+                  insomnia.expect(responseData).to.be.an('object');
+                  insomnia.expect(responseData).to.have.property('id');
+                  insomnia.expect(responseData).to.have.property('nom');
+                  insomnia.expect(responseData).to.have.property('pointsArret');
+                  insomnia.expect(responseData).to.have.property('dateCreationTrajet');
+                  insomnia.expect(responseData).to.have.property('dateDerniereModification');
+                	insomnia.expect(responseData).to.have.property('chauffeurs');
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}/999"
+            name: Trajet inexistant suppression
+            meta:
+              id: req_c27a82ed0f2d45c1a9cdc6c9c8c208cf
+              created: 1758826118091
+              modified: 1758826118091
+              isPrivate: false
+              description: ""
+              sortKey: 0
+            method: DELETE
+            scripts:
+              afterResponse: |
+                insomnia.test("Status code is 404", function () {
+                  insomnia.response.to.have.status(404);
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{TRAJETS}}"
+            name: Effacer tous les trajets
+            meta:
+              id: req_5c91dc58a97e4738baa63d28f92aaace
+              created: 1762907345929
+              modified: 1762908455754
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789975
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.6.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Arrêts
+        meta:
+          id: fld_d22250005a1e44118a0541a436c6546d
+          created: 1758295792094
+          modified: 1762913972253
+          sortKey: -1758295789976
+          description: ""
+        children:
+          - url: "{{URL}}/{{ARRETS}}/1"
+            name: arrêts avec Id 1
+            meta:
+              id: req_d5c0af2dd6bb48ec93fd91da51b6c937
+              created: 1758295792095
+              modified: 1758826941294
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789853
+            method: GET
+            scripts:
+              afterResponse: |-
+                insomnia.test("Status code is 200", function () {
+                    insomnia.response.to.have.status(200);
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{ARRETS}}/999"
+            name: arrêts avec id 999
+            meta:
+              id: req_9e066b8aca1f4d0da5c579b00ab6163f
+              created: 1758295792096
+              modified: 1762913802320
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789852
+            method: GET
+            scripts:
+              afterResponse: "insomnia.test(\"Status code is 404\", function () {\r
+
+                \    insomnia.response.to.have.status(404);\r
+
+                });"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{URL}}/{{ARRETS}}/999"
+            name: arrêt avec Id 999
+            meta:
+              id: req_615683657e7344ba97cf857009bbecf9
+              created: 1758295792097
+              modified: 1762913804861
+              isPrivate: false
+              description: ""
+              sortKey: -1758295789851
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: "[\r
+
+                \    {\r
+
+                \        \"longitude\": 36.425288,\r
+
+                \        \"latitude\": -117.133162\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.868446,\r
+
+                \        \"latitude\": -116.784582\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.88108,\r
+
+                \        \"latitude\": -116.81797\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.915682,\r
+
+                \        \"latitude\": -116.751677\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.914893,\r
+
+                \        \"latitude\": -116.76821\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.914944,\r
+
+                \        \"latitude\": -116.761472\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.909489,\r
+
+                \        \"latitude\": -116.768242\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.905697,\r
+
+                \        \"latitude\": -116.76218\r
+
+                \    },\r
+
+                \    {\r
+
+                \        \"longitude\": 36.641496,\r
+
+                \        \"latitude\": -116.40094\r
+
+                \    }\r
+
+                ]"
+            headers:
+              - name: Content-Type
+                value: application/json
+            scripts:
+              afterResponse: |-
+                insomnia.test("Status code is 404", function () {
+                    insomnia.response.to.have.status(404);
+                });
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+    environment:
+      CHAUFFEURS: chauffeurs
+      URL: https://localhost:13806
+      TRAJETS: trajets
+      AUTOBUS: autobus
+      ARRETS: arrets
+      TRAJET_ID: "1"
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_159edb3ac818487abf139bdc2a59ec52
+    created: 1758295792102
+    modified: 1762913972249
+environments:
+  name: Base Environment
+  meta:
+    id: env_d1d9b51d37474b95be0efe2962dbf689
+    created: 1758295792100
+    modified: 1762913972251
+    isPrivate: false

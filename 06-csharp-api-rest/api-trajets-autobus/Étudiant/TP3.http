@@ -1,0 +1,45 @@
+@baseUrl = https://localhost:5001
+
+### Get all trajets
+GET {{baseUrl}}/trajets
+
+### Get a specific trajet
+GET {{baseUrl}}/trajets/1
+
+### Get a specific trajet with arrets
+GET {{baseUrl}}/trajets/1?includeArrets=true
+
+### Create a new trajet
+POST {{baseUrl}}/trajets
+Content-Type: application/json
+
+{
+  "nom": "New Trajet"
+}
+
+### Add arrets to a trajet
+POST {{baseUrl}}/trajets/1/arrets
+Content-Type: application/json
+
+[
+  {
+    "latitude": 45.5017,
+    "longitude": -73.5673
+  },
+  {
+    "latitude": 45.5088,
+    "longitude": -73.5878
+  }
+]
+
+### Get arrets for a specific trajet
+GET {{baseUrl}}/trajets/1/arrets
+
+### Delete a trajet
+DELETE {{baseUrl}}/trajets/1
+
+### Get a specific arret
+GET {{baseUrl}}/arrets/1
+
+### Delete an arret
+DELETE {{baseUrl}}/arrets/1

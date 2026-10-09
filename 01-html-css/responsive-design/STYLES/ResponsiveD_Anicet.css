@@ -1,0 +1,1372 @@
+/*Propriétés non-flexbox*/
+
+/* Class Appliqué à l'élément <div> enfant direct du body */
+.gro_conteneur {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0px;
+    left: 0px;
+}
+
+/*Propriétés flexbox*/
+
+/* Class Appliqué à l'élément <div> enfant direct du body */
+.gro_conteneur {
+
+    /* Définit l'élément comme un conteneur flex */
+    display: inline-flex;
+
+    /* Les éléments enfants sont disposés en ligne*/
+    flex-direction: row;/* Axe principal */
+    
+     /* Permet le retour à la ligne des éléments flexibles */
+    flex-wrap: wrap;/* Axe secondaire */
+    
+
+    /* Les éléments enfants sont alignés au début de l'axe principal */
+    justify-content: flex-start;/* Axe principal */
+    
+
+    /* Les éléments enfants sont alignés au début de l'axe secondaire */
+    align-items: flex-start;/* Axe secondaire */
+    
+
+    /* Les lignes d'éléments sont alignés au début de l'axe secondaire */
+    align-content: flex-start;/* Axe secondaire */
+    
+
+}
+
+/*Soit les largeurs de téléphones cellulaires*/
+@media screen and (max-width:680px) {
+
+    /*Propriétés non-flexbox*/
+
+    /* Class Appliqué à l'élément <div> enfant direct du body */
+    .gro_conteneur {
+        height: 950px;
+        background-color: #3c9a54;
+        font-family: "Inter", sans-serif;
+        padding-bottom: 1%;
+    }
+
+    /*Selecteur universel. Il selecctionne tous les conteneurs de la page*/
+    * {
+        animation-name: borderG;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite; /* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear; /* Fonction de synchronisation de l'animation */
+       
+    }
+ 
+    /*Gestion de l'animation */
+    @keyframes borderG {
+        0% {
+            border-color: #3c879a;
+        }
+
+        50% {
+            border-color: #9a3c3c;
+        }
+
+        100% {
+            border-color: #3c879a;
+        }
+    }
+
+    /* Class Appliqué à l'élément <header> enfant du <div class="gro_conteneur"> */
+    .c1_tete {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c1_tete"> */
+    .image_cegep {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <nav> enfant du <div class="gro_conteneur"> */
+    .c2_nav {
+        background-color: #3c9a54f6;
+        border: 3px solid rgb(2, 0, 0);
+        width: 99%;
+        position: fixed;
+        top: 0px;
+        z-index: 1;
+    }
+
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        height: 40px;
+        border: 2px groove rgba(255, 255, 255, 1);
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: #3c9a54;
+        box-shadow: 5px 5px 10px #338347,
+            -5px -5px 10px #45b161;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        animation: none;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes c2_p {
+        0% {
+            border-color: #ffffff;
+        }
+
+        50% {
+            border-color: #3c879a;
+        }
+
+        100% {
+            border-color: #ffffff;
+        }
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c2_nav>p:hover {
+        font-weight: 400;
+        border: 2px ridge rgba(255, 255, 255, 0.5);
+        background: #3c9a54;
+        box-shadow: inset 5px 5px 5px #338347,
+            inset -5px -5px 5px #45b161;
+        animation-name: c2_p;
+        animation-duration: 2s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear;/* Fonction de synchronisation de l'animation */
+        
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:active‘’, un style défini  pour un élément lors 
+    du clic il change de style*/
+    .c2_nav>p:active {
+        border: 2px inset rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background: #3c9a54;
+        box-shadow: inset 5px 5px 0px #338347,
+            inset -5px -5px 0px #45b161;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'équipe feminine de hockey du Cegep*/
+    .c3_photoCegep {
+        width: 100%;
+        height: 175px;
+        border: 5px ridge rgb(185, 250, 190);
+        position: relative;
+        top: 205px;
+        margin: 0.5%;
+        overflow: hidden;
+        transition:
+            /* Transition pour la hauteur : durée de 2 secondes, délai de 0 seconde,
+        courbe de transition linéaire */
+            height 2s 0s linear;
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c3_photoCegep:hover {
+        height: 378px;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c3_photoCegep"> */
+    .imagePr {
+        width: 180%;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c4_cours {
+        width: 98%;
+        height: 175px;
+        border: 5px ridge #3c879a;
+        position: relative;
+        top: 205px;
+        margin: 0.5%;
+        overflow: auto;
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c4_cours>p {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bolder;
+        color: white;
+
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 14.6px;
+        color: white;
+        cursor: pointer;
+    }
+
+    li:hover {
+        color: #3c879a;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'auitomne*/
+    .c5_automne {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <aside> enfant du <div class="gro_conteneur"> 
+    contenant l'image des voitures*/
+    .c6_hobby {
+        width: 96.5%;
+        height: 120px;
+        position: relative;
+        top: 210px;
+        left: 1%;
+        background-color: #3c879a;
+        background-image: url(../IMAGES/Anicet.gif);
+        background-size: 250px;
+        border: 5px outset #18333a;
+        overflow: hidden;
+        order: 2;
+
+    }
+
+    .voiture {
+        display: none;
+    }
+
+    .voiture2 {
+        width: 100%;
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+        animation-name: defile;
+        /* Nom de l'animation */
+        animation-duration: 6s;
+        /* Durée de l'animation */
+        animation-iteration-count: infinite;
+        /* Nombre de répétitions de l'animation */
+        animation-direction: reverse;
+        /* Direction de l'animation */
+        animation-timing-function: linear;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes defile {
+        0% {
+            transform: translatex(99%);
+        }
+
+        100% {
+            transform: translatex(-100%);
+        }
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c7_lorem1 {
+        display: inline-block;
+        position: relative;
+        top: 205px;
+        width: 98%;
+        height: 90px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #18333a;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c8_lorem2 {
+        display: inline-block;
+        position: relative;
+        top: 205px;
+        width: 98%;
+        height: 90px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #18333a;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+    }
+
+    /* Class Appliqué à l'élément <footer> enfant du <div class="gro_conteneur"> */
+    .c9_pied {
+        display: none;
+    }
+
+
+   /*Propriétés flexbox*/
+
+    /* Class Appliqué à l'élément <header> enfant du <div class="gro_conteneur"> */
+    .c1_tete {
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;/* Axe principal */
+        
+
+        /* Permet le retour à la ligne des éléments flexibles */
+        flex-wrap: wrap; /* Axe secondaire */
+       
+
+        /* Les éléments enfants sont centré le long de l'axe principal */
+        justify-content: center;/* Axe principal */
+        
+
+        /* Les éléments enfants sont centrer le long de l'axe secondaire */
+        align-items: center; /* Axe secondaire */
+       
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-content: flex-start;/* Axe secondaire */
+        
+
+        flex-basis: auto;/* gere la largeur*/
+        
+    }
+
+    /* Class Appliqué à l'élément <nav> enfant du <div class="gro_conteneur"> */
+    .c2_nav {
+
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;
+        /* Axe principal */
+
+        /* /* La déclaration FlexBox qui suit évitera d’avoir une disposition non souhaitée ( 3 : 1 ) */
+        flex-wrap: wrap;
+        /* Axe secondaire */
+
+        /* Les éléments enfants sont espacés de manière égale le long de l'axe principal */
+        justify-content: space-evenly;
+        /* Axe principal */
+
+        /* Les éléments enfants sont alignés au début de l'axe secondaire */
+        align-items: center;
+        /* Axe secondaire */
+
+        /* Les lignes d'éléments sont centrées le long de l'axe secondaire */
+        align-content: flex-start;
+        /* Axe secondaire */
+
+        flex-basis: auto;
+        /* gere la hauteur*/
+
+
+
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;
+        /* Axe principal */
+
+        /* /* La déclaration FlexBox qui suit évitera d’avoir une disposition non souhaitée ( 3 : 1 ) */
+        flex-wrap: nowrap;
+        /* Axe secondaire */
+
+        /* centre le texte horizontalement */
+        justify-content: center;
+        /* Axe principal */
+
+        /*centre le texte verticalement */
+        align-items: center;
+        /* Axe secondaire */
+
+        /* Les lignes d'éléments sont centrées le long de l'axe secondaire */
+        align-content: flex-start;
+        /* Axe secondaire */
+
+        /* Définit la taille de base de l'élément à 23% de l'espace disponible */
+        flex-basis: 92%;
+
+        flex-shrink: 1;
+    }
+
+
+
+
+}
+
+/*Soit les largeurs des tablettes électroniques*/
+@media screen and (min-width:681px) and (max-width:1279px) {
+
+    /* non flexbox*/
+    /* Class Appliqué à l'élément <div> enfant du body > */
+    .gro_conteneur {
+        height: 900px;
+        background-color: #9a3c3c;
+        font-family: "Oswald", sans-serif;
+        padding-bottom: 1%;
+
+    }
+
+    /*Selecteur universel. Il selecctionne tous les conteneurs de la page*/
+    * {
+        animation-name: borderG;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear; /* Fonction de synchronisation de l'animation */
+       
+    }
+
+    /*Gestion de l'animation */
+    @keyframes borderG {
+        0% {
+            border-color: #3c879a;
+        }
+
+        50% {
+            border-color: #2ffa62;
+        }
+
+        100% {
+            border-color: #3c879a;
+        }
+    }
+
+    /* Class Appliqué à l'élément <header> enfant du <div class="gro_conteneur"> */
+    .c1_tete {
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        padding: 3px;
+        border: 3px solid black;
+        background-color: #60CA99;
+        z-index: 1;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c1_tete"> */
+    .image_cegep {
+        height: 100px;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+    }
+
+     /* Class Appliqué à l'élément <nav> enfant du <div class="gro_conteneur"> */
+    .c2_nav {
+        background-color: #9a3c3cf6;
+        border: 3px solid rgb(2, 0, 0);
+        width: 100%;
+        position: fixed;
+        top: 110px;
+        z-index: 1;
+
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        height: 40px;
+        border: 2px groove rgba(255, 255, 255, 1);
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: #9a3c3c;
+        box-shadow: 5px 5px 10px #833333,
+            -5px -5px 10px #b14545;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        animation: none;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes c1_p {
+        0% {
+            border-color: #ffffff;
+        }
+
+        50% {
+            border-color: #3c879a;
+        }
+
+        100% {
+            border-color: #ffffff;
+        }
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c2_nav>p:hover {
+        font-weight: 400;
+        border: 2px ridge rgba(255, 255, 255, 0.5);
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: #9a3c3c;
+        box-shadow: inset 5px 5px 5px #833333,
+            inset -5px -5px 5px #b14545;
+        animation-name: c1_p;/* Nom de l'animation */
+        
+        animation-duration: 2s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear; /* Fonction de synchronisation de l'animation */
+       
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:active‘’, un style défini  pour un élément lors 
+    du clic il change de style*/
+    .c2_nav>p:active {
+        border: 2px inset rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        background: #9a3c3c;
+        box-shadow: inset 5px 5px 0px #833333,
+            inset -5px -5px 0px #b14545;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'équipe feminine de hockey du Cegep*/
+    .c3_photoCegep {
+        display: inline-block;
+        width: 33.3%;
+        height: 270px;
+        border: 5px inset rgb(250, 201, 201);
+        background-color: #DBD7D6;
+        position: relative;
+        top: 270px;
+        margin: 0.5%;
+        overflow: hidden;
+        transition:
+            /* Transition pour la hauteur : durée de 2 secondes, délai de 0 seconde,
+                 courbe de transition linéaire */
+            height 2s 0s linear;
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c3_photoCegep:hover {
+        height: 280px;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c3_photoCegep"> */
+    .imagePr {
+        width: 180%;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c4_cours {
+        display: inline-block;
+        width: 33.3%;
+        height: 270px;
+        border: 5px inset #3c9a54;
+        position: relative;
+        top: 270px;
+        padding-right: 0.5%;
+        margin: 0.5%;
+        overflow: auto;
+
+    }
+
+     /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c4_cours>p {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bolder;
+        color: white;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 14.6px;
+        color: white;
+        cursor: pointer;
+    }
+
+    li:hover {
+        color: #3c9a54;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'automne*/
+    .c5_automne {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <aside> enfant du <div class="gro_conteneur"> 
+    contenant l'image des voitures*/
+    .c6_hobby {
+        width: 26.5%;
+        position: relative;
+        top: 275px;
+        height: 550px;
+        background-image: url(../IMAGES/Anicet.gif);
+        background-size: 250px;
+        border: 5px outset #1c4125;
+        overflow: hidden;
+
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c6_hobby"> */
+    .voiture2 {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c6_hobby"> */
+    .voiture {
+        width: 100%;/* Permet que l'element occupe 100% du conteneur*/
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+        animation-name: defile;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: reverse;/* Direction de l'animation */
+        
+        animation-timing-function: linear;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes defile {
+        0% {
+            transform: translatey(140%);
+        }
+
+        100% {
+            transform: translatey(-99%);
+        }
+    }
+
+     /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c7_lorem1 {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 67.3%;
+        height: 119px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #1c4125;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+
+    }
+
+     /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c8_lorem2 {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 67.3%;
+        height: 119px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #1c4125;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+
+    }
+
+    /* Class Appliqué à l'élément <footer> enfant du <div class="gro_conteneur"> */
+    .c9_pied {
+        display: none;
+    }
+
+
+    /*Propriétés flexbox*/
+
+    /* Class Appliqué à l'élément <header> enfant du <div class="gro_conteneur"> */
+    .c1_tete {
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;/* Axe principal */
+        
+
+        /* Permet le retour à la ligne des éléments flexibles */
+        flex-wrap: wrap;/* Axe secondaire */
+        
+
+        /* Les éléments enfants sont centré le long de l'axe principal */
+        justify-content: center;/* Axe principal */
+        
+
+        /* Les éléments enfants sont centrer le long de l'axe secondaire */
+        align-items: center;/* Axe secondaire */
+        
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-content: flex-start; /* Axe secondaire */
+       
+
+        flex-basis: auto;/* gere la largeur*/
+        
+    }
+
+    /* Class Appliqué à l'élément <nav> enfant du <div class="gro_conteneur"> */
+    .c2_nav {
+
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;/* Axe principal */
+        
+
+         /* Permet le retour à la ligne des éléments flexibles */
+        flex-wrap: wrap; /* Axe secondaire */
+       
+        /* Les éléments enfants sont espacés de manière égale le long de l'axe principal */
+        justify-content: space-evenly;/* Axe principal */
+        
+        /* Les éléments enfants sont alignés au début de l'axe secondaire */
+        align-items: flex-start;/* Axe secondaire */
+        
+
+        /* Les éléments enfants sont alignés au début de l'axe secondaire */
+        align-content: flex-start;/* Axe secondaire */
+        
+
+        flex-basis: auto; /* gere la largeur*/
+       
+
+
+
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;
+        /* Axe principal */
+
+        /* /* La déclaration FlexBox qui suit évitera d’avoir une disposition non souhaitée ( 3 : 1 ) */
+        flex-wrap: nowrap;
+        /* Axe secondaire */
+
+        /* centre le texte horizontalement */
+        justify-content: center;
+        /* Axe principal */
+
+        /*centre le texte verticalement */
+        align-items: center;
+        /* Axe secondaire */
+
+        /* Les lignes d'éléments sont centrées le long de l'axe secondaire */
+        align-content: flex-start;
+        /* Axe secondaire */
+
+        /* Définit la taille de base de l'élément à 46% de l'espace disponible */
+        flex-basis: 46%;
+
+        flex-shrink: 1;
+    }
+
+
+
+}
+
+/*Soit des largeurs d'ecran d'ordinateur de bureau*/
+@media screen and (min-width:1280px) {
+
+    /* non flexbox*/
+    /* Class Appliqué à l'élément <div> enfant du body > */
+    .gro_conteneur {
+        background-color: #3c879af6;
+        font-family: "Raleway", sans-serif;
+    }
+
+    /*Selecteur universel. Il selecctionne tous les conteneurs de la page*/
+    * {
+        animation-name: borderGradient;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear; /* Fonction de synchronisation de l'animation */
+       
+    }
+
+    /*Gestion de l'animation */
+    @keyframes borderGradient {
+        0% {
+            border-color: #fd6464;
+        }
+
+        50% {
+            border-color: #2ffa62;
+        }
+
+        100% {
+            border-color: #b14545;
+        }
+    }
+
+    /* Class Appliqué à l'élément <header> enfant du <div class="gro_conteneur"> */
+    .c1_tete {
+        width: 97.6%;
+
+        position: fixed;
+        top: 0px;
+        margin-left: 0.5%;
+        margin-right: 0.3%;
+        padding: 3px;
+        border: 3px solid black;
+        background-color: #60CA99;
+        z-index: 1;
+        animation-name: c1;/* Nom de l'animation */
+        
+        animation-duration: 14s; /* Durée de l'animation */
+       
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear;/* Fonction de synchronisation de l'animation */
+        
+    }
+
+     /*Gestion de l'animation */
+    @keyframes c1 {
+        0% {
+            border-color: #ffffff;
+        }
+
+        50% {
+            border-color: #b14545;
+        }
+
+        100% {
+            border-color: #ffffff;
+        }
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c1_tete"> */
+    .image_cegep {
+        height: 100px;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+    }
+
+    .c2_nav {
+        background-color: #3c879af6;
+        border: 3px solid rgb(2, 0, 0);
+        width: 98%;
+        margin: 0.5%;
+        position: fixed;
+        top: 102px;
+        z-index: 2;
+        animation-name: c2;/* Nom de l'animation */
+        
+        animation-duration: 14s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear; /* Fonction de synchronisation de l'animation */
+       
+    }
+
+    /*Gestion de l'animation */
+    @keyframes c2 {
+        0% {
+            border-color: #ffffff;
+        }
+
+        50% {
+            border-color: #b14545;
+        }
+
+        100% {
+            border-color: #ffffff;
+        }
+    }
+
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        height: 40px;
+        border: 2px groove rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        background: #3c879a;
+        box-shadow: 5px 5px 10px #337383,
+            -5px -5px 10px #459bb1;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        animation: none;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes c1_p {
+        0% {
+            border-color: #ffffff;
+        }
+
+        50% {
+            border-color: #c87575;
+        }
+
+        100% {
+            border-color: #ffffff;
+        }
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c2_nav>p:hover {
+        font-weight: 400;
+        border: 2px ridge rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        background: #3c879a;
+        box-shadow: inset 5px 5px 5px #377b8c,
+            inset -5px -5px 5px #4193a8;
+        animation-name: c1_p;/* Nom de l'animation */
+        
+        animation-duration: 2s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite; /* Nombre de répétitions de l'animation */
+       
+        animation-direction: alternate;/* Direction de l'animation */
+        
+        animation-timing-function: linear;/* Fonction de synchronisation de l'animation */
+        
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:active‘’, un style défini  pour un élément lors 
+    du clic il change de style*/
+    .c2_nav>p:active {
+        border: 2px inset rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background: #3c879a;
+        box-shadow: inset 5px 5px 0px #377b8c,
+            inset -5px -5px 0px #4193a8;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'équipe feminine de hockey du Cegep*/
+    .c3_photoCegep {
+        display: inline-block;
+        width: 24%;
+        height: 288px;
+        background-color: #DBD7D6;
+        border: 5px outset #b14545;
+        position: relative;
+        top: 190px;
+        margin: 0.5%;
+        overflow: hidden;
+        transition:
+            /* Transition pour la hauteur : durée de o.5 secondes, délai de 0 seconde,
+                 courbe de transition linéaire */
+            height 0.5s 0s linear;
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c3_photoCegep:hover {
+        height: 300px;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c3_photoCegep"> */
+    .imagePr {
+        width: 150%;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+    .c4_cours {
+        display: inline-block;
+        width: 24%;
+        height: 288px;
+        border: 5px outset #b14545;
+        position: relative;
+        top: 190px;
+        padding-right: 0.5%;
+        margin: 0.5%;
+        overflow: auto;
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c4_cours>p {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bolder;
+        color: white;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 14.6px;
+        color: white;
+        cursor: pointer;
+    }
+
+    li:hover {
+        color: #b14545;
+    }
+
+    /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> 
+    contenant l'image de l'automne*/
+    .c5_automne {
+        display: inline-block;
+        width: 24%;
+        height: 288px;
+        border: 5px outset #b14545;
+        box-shadow: -5px 5px 5px #8B4513;
+        position: relative;
+        top: 190px;
+        margin: 0.5%;
+        overflow: hidden;
+        transition:
+            /* Transition pour la hauteur : durée de 0.5 secondes, délai de 0 seconde,
+                 courbe de transition linéaire */
+            height 0.5s 0s ease-in-out;
+
+    }
+
+    /* Ici, À l’aide de la pseudo classe    ‘’:hover‘’, un style défini  pour un élément lorsque 
+    l'utilisateur place le curseur de la souris dessus il change de style*/
+    .c5_automne:hover {
+        height: 300px;
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c5_automne>img {
+        width: 100%;
+        vertical-align: middle;/* Centre l'image verticalement par rapport à son conteneur est supprime l'espace dans le bas de l'image */
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+    }
+
+    /* Class Appliqué à l'élément <aside> enfant du <div class="gro_conteneur"> 
+    contenant l'image des voitures*/
+    .c6_hobby {
+        display: inline-block;
+        position: relative;
+        top: 197px;
+        height: 500px;
+        background-color: #b14545;
+        background-image: url(../IMAGES/Anicet.gif);
+        background-size: 300px;
+        border: 5px outset #3c1414;
+        overflow: hidden;
+
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c6_hobby"> */
+    .voiture2 {
+        display: none;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <div class="c6_hobby"> */
+    .voiture {
+        width: 100%;
+        object-fit: contain;/* Ajuste l'image pour qu'elle soit contenue dans le conteneur sans déformation */
+        animation-name: defile;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: reverse; /* Direction de l'animation */
+       
+        animation-timing-function: linear;
+    }
+
+     /*Gestion de l'animation */
+    @keyframes defile {
+        0% {
+            transform: translatey(100%);
+        }
+
+        100% {
+            transform: translatey(-99%);
+        }
+    }
+
+     /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+     .c7_lorem1 {
+        display: inline-block;
+        width: 35.5%;
+        height: 182px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #b14545;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+        position: relative;
+        top: -5px;
+    }
+
+     /* Class Appliqué à l'élément <div> enfant du <div class="gro_conteneur"> */
+     .c8_lorem2 {
+        display: inline-block;
+        width: 35.5%;
+        height: 182px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1.5;
+        color: white;
+        border: 5px outset #b14545;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        overflow: auto;
+        position: relative;
+        top: -5px;
+    }
+
+    /* Class Appliqué à l'élément <footer> enfant du <div class="gro_conteneur"> */
+    .c9_pied {
+        display: inline-block;
+        width: 96.5%;
+        height: 220px;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 1;
+        color: #3c879a;
+        text-align: center;
+        border: 5px outset #b14545;
+        background-color: white;
+        padding-right: 0.5%;
+        padding-left: 1%;
+        margin: 0.5%;
+        font-weight: bolder;
+        overflow: auto;
+    }
+
+    /* Class Appliqué à l'élément <img> enfant du <footer class="c9_pied"> */
+    .logo {
+        width: 100px;
+    }
+
+    /* Class Appliqué à l'élément <footer> enfant du <div class="gro_conteneur"> */
+    .cegep2 {
+        animation-name: anime1;/* Nom de l'animation */
+        
+        animation-duration: 4s; /* Durée de l'animation */
+       
+        animation-delay: 2s;
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate-reverse; /* Direction de l'animation */
+       
+        animation-timing-function: ease-in-out;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes anime1 {
+        0% {
+            transform: translatex(-100%);
+        }
+
+        100% {
+            transform: translatex(0%);
+        }
+    }
+
+    /* Class Appliqué à l'élément <footer> enfant du <div class="gro_conteneur"> */
+    .cegep1 {
+        animation-name: anime2;/* Nom de l'animation */
+        
+        animation-duration: 4s;/* Durée de l'animation */
+        
+        animation-delay: 2s;
+        animation-iteration-count: infinite;/* Nombre de répétitions de l'animation */
+        
+        animation-direction: alternate; /* Direction de l'animation */
+       
+        animation-timing-function: ease-in-out;
+    }
+
+    /*Gestion de l'animation */
+    @keyframes anime2 {
+        0% {
+            transform: translatex(0%);
+        }
+
+        100% {
+            transform: translatex(100%);
+        }
+    }
+
+    /*flexbox*/
+
+    .c1_tete {
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;/* Axe principal */
+        
+
+        /* Permet le retour à la ligne des éléments flexibles */
+        flex-wrap: wrap; /* Axe secondaire */
+       
+
+        /* Les éléments enfants sont centré le long de l'axe principal */
+        justify-content: center;/* Axe principal */
+        
+
+        /* Les éléments enfants sont centrer le long de l'axe secondaire */
+        align-items: center;/* Axe secondaire */
+        
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-content: flex-start;/* Axe secondaire */
+        
+
+        flex-basis: auto;/* gere la largeur*/
+        
+    }
+
+    .c2_nav {
+
+        /* Définit l'élément comme un conteneur flex */
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row;/* Axe principal */
+        
+
+        /* /* La déclaration FlexBox qui suit évitera d’avoir une disposition non souhaitée ( 3 : 1 ) */
+        flex-wrap: nowrap;/* Axe secondaire */
+        
+
+        /* Les éléments enfants sont espacés de manière égale le long de l'axe principal */
+        justify-content: space-evenly; /* Axe principal */
+       
+
+        /* Les éléments enfants sont alignés au début de l'axe secondaire */
+        align-items: flex-start;/* Axe secondaire */
+        
+
+        /* Les éléments enfants sont alignés au début de l'axe secondaire */
+        align-content: flex-start; /* Axe secondaire */
+       
+
+        flex-basis: auto;  /* gere la largeur*/
+      
+    }
+
+    /* Ici, À l’aide de la technique    ‘’Sélecteur avancé  >  « A > B »‘’,
+     les déclarations de style sont affectées aux éléments de type : 
+     ‘’paragraphe’’, enfant du <nav>,  associé la class c2_nav */
+    .c2_nav>p {
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: row; /* Axe principal */
+       
+
+        /* /* La déclaration FlexBox qui suit évitera d’avoir une disposition non souhaitée ( 3 : 1 ) */
+        flex-wrap: nowrap;/* Axe secondaire */
+        
+
+        /* centre le texte horizontalement */
+        justify-content: center;/* Axe principal */
+        
+
+        /*centre le texte verticalement */
+        align-items: center;/* Axe secondaire */
+        
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-content: flex-start;
+        /* Axe secondaire */
+
+        /* Définit la taille de base de l'élément à 23% de l'espace disponible */
+        flex-basis: 23%;
+
+        flex-shrink: 1;
+    }
+
+    .c6_hobby {
+        display: flex;
+        /* Les éléments enfants sont disposés en ligne */
+        flex-direction: column;/* Axe principal */
+        
+
+        /* Les éléments enfants sont disposés en ligne */
+        flex-wrap: wrap;/* Axe secondaire */
+        
+
+        /* Les éléments enfants sont alignés au debut le long de l'axe principal */
+        justify-content: flex-start;/* Axe principal */
+        
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-items: flex-start;/* Axe secondaire */
+        
+
+        /* Les lignes d'éléments sont aligné au debut de l'axe secondaire */
+        align-content: flex-start;/* Axe secondaire */
+        
+
+        flex-basis: 20.5%;
+
+        flex-shrink: 1;
+        
+        gap: 0px;
+    }
+
+}
